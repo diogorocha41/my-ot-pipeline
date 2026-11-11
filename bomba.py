@@ -31,13 +31,15 @@ class Bomba:
         self.velocidade_hz = nova_velocidade
 
 
-p101 = Bomba("P101", 50)
-p102 = Bomba("P102", 40)
 
-print(p101.ler())
-print(p102.ler())
+if __name__ == "__main__":
+    p101 = Bomba("P101", 50)
+    p102 = Bomba("P102", 40)
+    
+    print(p101.ler())
+    print(p102.ler())
 
-p101.mudar_velocidade(35)
+    p101.mudar_velocidade(35)
 
-print(p101.ler())
-print(p102.ler())
+    print(p101.ler())
+    print(p102.ler())

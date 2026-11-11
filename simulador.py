@@ -1,21 +1,15 @@
 import random
 import time 
 import json
+from bomba import Bomba
 
-from datetime import datetime, timezone
-
-def ler_bomba():
-    leitura = {
-        "bomba": "P101",
-        "timestamp": datetime.now(timezone.utc).isoformat(),
-        "caudal_m3h": round(random.uniform(95, 105), 1),
-        "pressao_bar": round(random.uniform(4.9, 5.1), 2),
-        "temperatura_c": round(random.uniform(44, 46),1),
-    }
-    return leitura
+bombas = [Bomba("P101", 50), Bomba("P102", 45), Bomba("P103", 40)]
 
 while True: 
-    mensagem = json.dumps(ler_bomba())
-    print (mensagem)
+    for bomba in bombas:
+        if random.random () < 0.1:
+            bomba.mudar_velocidade(random.randint(35, 50))
+        mensagem = json.dumps(bomba.ler())
+        print (mensagem)
     time.sleep(1)
 
