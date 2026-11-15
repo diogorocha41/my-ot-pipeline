@@ -13,7 +13,7 @@ bombas = [Bomba("P101", 50), Bomba("P102", 45), Bomba("P103", 40)]
 try:
     while True: 
         for bomba in bombas:
-            if random.random () < 0.1:
+            if random.random() < 1 / 120:
                 bomba.mudar_velocidade(random.randint(35, 50))
             mensagem = json.dumps(bomba.ler())
             topico = f"estacao/{bomba.nome}/telemetria"
